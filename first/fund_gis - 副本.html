@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../mui/css/mui.css" />
+		<style type="text/css">
+			* {
+				-webkit-user-select: none;
+			}
+
+			html,
+			body {
+				margin: 0px;
+				padding: 0px;
+				height: 100%;
+			}
+		</style>
+		<script type="text/javascript">
+			var em = null,
+				map = null;
+			// H5 plus事件处理
+			function plusReady() {
+				// 确保DOM解析完成
+				if (!em || !window.plus || map) {
+					return
+				};
+				map = new plus.maps.Map("map");
+				
+			}
+			if (window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+			// DOMContentloaded事件处理
+			document.addEventListener("DOMContentLoaded", function() {
+				em = document.getElementById("map");
+				plusReady();
+			}, false);
+			
+			
+		</script>
+		<style type="text/css">
+			#map {
+				width: 100%;
+				position: absolute;
+				top: 45px;
+				bottom: 0px;
+				line-height: 200px;
+				text-align: center;
+				background: #FFFFFF;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">地图</h1>
+			</header>
+			
+		</div>
+		<div id="map">地图加载中...</div>
+
+
+		<script src="../mui/js/mui.min.js" type="text/javascript" charset="utf-8">
+		</script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+
+</html>

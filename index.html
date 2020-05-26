@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="./mui/css/mui.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon  mui-pull-left"></a>
+			<h1 id="title" class="mui-title"></h1>
+		</header>
+			
+		<div class="mui-content">
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item mui-active" id="defaultTab" href="package/first.html">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a class="mui-tab-item" href="package/pending.html">
+					<span class="mui-icon mui-icon-compose">
+						<span class=" mui-badge mui-badge-danger " style="margin-left: 0px;">5</span>
+					</span>
+					<span class="mui-tab-label">待办事项</span>
+				</a>
+				<a class="mui-tab-item" href="package/project.html">
+					<span class="mui-icon mui-icon-map"></span>
+					<span class="mui-tab-label">项目查看</span>
+				</a>
+				<a class="mui-tab-item" href="package/user_center.html">
+					<span class="mui-icon mui-icon-person"></span>
+					<span class="mui-tab-label">用户中心</span>
+				</a>
+				
+			</nav>
+		</div>
+		<script src="./mui/js/mui.js"></script>
+		<script type="text/javascript">
+			
+			mui.init();
+			//webview窗体
+			var subpages = ['index/first.html', 'index/pending.html','index/project.html','index/user_center.html'];
+			var subpage_style = {
+				top: '0px',
+				bottom: '51px'
+			};
+			var aniShow = {};
+
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				for(var i = 0; i < 5; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if(i != 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow, temp);
+					}
+					self.append(sub); //sub作为self的子页面
+				}
+				//解决mui 键盘弹出 将底部选项卡顶上来
+				var height = document.documentElement.clientHeight || document.body.clientHeight;
+				plus.webview.currentWebview().setStyle({
+					height:height
+				});
+				window.onresize = function () {
+					plus.webview.currentWebview().setStyle({
+						height:height
+					})
+				}
+			});
+			//当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			//选项卡点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if(targetTab == activeTab) { //所选为首页则不做动作 
+					return;
+				}
+				//更换标题
+				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if(mui.os.ios || aniShow[targetTab]) {
+					plus.webview.show(targetTab);
+				} else {
+					//alert("非首次非苹果")
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow, temp);
+					plus.webview.show(targetTab,"fade-in",200);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+			//自定义事件，模拟点击“首页选项卡”
+			document.addEventListener('gohome', function() {
+				alert("执行了模拟点击函数");
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+				if(defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
+		</script>
+	</body>
+
+</html>

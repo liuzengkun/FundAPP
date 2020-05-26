@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<style type="text/css">
+			body,
+			html {
+				height: 100%;
+			}
+			
+			body {
+				/* background-image: url(img/login-bg.png); */
+				background-size: cover;
+				background-position: 50%;
+			}
+			
+			.mui-input-group {
+				background: transparent;
+			}
+			
+			input::-webkit-input-placeholder {
+				color: #eee;
+				font-size: 14px;
+			}
+			
+			.login {
+				position: absolute;
+				left: 50%;
+				top: 60%;
+				width: 250px;
+				transform: translate(-50%, -50%);
+			}
+			
+			.login-logo {
+				width: 180px;
+				margin: 0 auto;
+				margin-bottom: 50px;
+			}
+			
+			.login-logo img {
+				width: 180px;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				height: 0;
+			}
+			
+			.mui-input-row {
+				margin-bottom: 20px;
+			}
+			
+			.mui-input-row label {
+				width: 20%;
+				text-align: center;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 80%;
+				font-size: 20px;
+				color: #000;
+			}
+			
+			.mui-input-group .mui-input-row:after {
+				right: 10px;
+				background-color: #eee;
+			}
+			
+			.mui-input-row .mui-input-clear~.mui-icon-clear,
+			.mui-input-row .mui-input-password~.mui-icon-eye,
+			.mui-input-row .mui-input-speech~.mui-icon-speech {
+				right: 10px;
+			}
+			
+			.mui-input-row .mui-input-clear~.mui-icon-clear,
+			.mui-input-row .mui-input-password~.mui-icon-eye,
+			.mui-input-row .mui-input-speech~.mui-icon-speech {
+				color: #ccc;
+			}
+			
+			.mui-input-row .mui-input-clear~.mui-icon-clear.mui-active,
+			.mui-input-row .mui-input-password~.mui-icon-eye.mui-active,
+			.mui-input-row .mui-input-speech~.mui-icon-speech.mui-active {
+				color: #fff;
+			}
+			
+			.btn-lg {
+				border-radius: 50px;
+				padding: 10px 100px;
+				font-size: 18px;
+				margin-top: 20px;
+			}
+			
+			footer {
+				text-align: center;
+				font-size: 12px;
+				color: #ccc;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 15px;
+			}
+			
+			footer a {
+				color: #fff;
+			}
+			
+			footer a:active {
+				color: #eee;
+			}
+			
+			.fa {
+				color: #fff;
+			}
+			
+			.mui-btn-outlined {
+				border: 1px solid #000;
+				background-color: #fff;
+				color: #007AFF;
+			}
+			
+			.mui-btn.mui-active:enabled,
+			.mui-btn:enabled:active,
+			button.mui-active:enabled,
+			button:enabled:active,
+			input[type=button].mui-active:enabled,
+			input[type=button]:enabled:active,
+			input[type=reset].mui-active:enabled,
+			input[type=reset]:enabled:active,
+			input[type=submit].mui-active:enabled,
+			input[type=submit]:enabled:active {
+				border: 1px solid #eee;
+				background-color: rgba(255, 255, 255, 0.2);
+				color: #fff;
+			}
+			
+			body {
+				position: relative;
+			}
+			
+			.login-logo-text {
+				color: #FFFFFF;
+				font-size: 42px;
+				line-height: 50px;
+				position: absolute;
+				top: 20%;
+				width: 100%;
+				text-align: center;
+			}
+			
+			#activation {
+				text-align: center;
+				color: #eee;
+				font-size: 14px;
+			}
+			
+			#activation:active {
+				color: #FFF;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="login-logo-text">
+			自然资金监测监管系统
+		</div>
+		<div class="login">
+			<div class="mui-input-group">
+				<div class="mui-input-row">
+					<label><i class="fa fa-user-o"></i></label>
+					<input id="accountname" name="accountname" type="text" class="mui-input-clear" placeholder="用户名" value="新疆维吾尔自治区自然资源厅">
+				</div>
+				<div class="mui-input-row">
+					<label><i class="fa fa-unlock-alt"></i></label>
+					<input id="password" name="password" type="password" class="mui-input-password" placeholder="密码" value="666666">
+				</div>
+				<div class="mui-button-row" style="height: 72px;">
+					<button id="submit" type="button" class="mui-btn  mui-btn-outlined btn-lg">登&nbsp;&nbsp;录</button>
+				</div>
+			</div>
+		</div>
+		
+		<script src="JQuery/jquery-3.2.0.min.js"></script>
+		<script src="JQuery/jquery.md5.js"></script>
+		<script src="mui/js/mui.min.js"></script>
+		<script src="function.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			function wainshow() {
+				var nt = plus.networkinfo.getCurrentType();
+				switch(nt) {
+					case plus.networkinfo.CONNECTION_ETHERNET:
+					case plus.networkinfo.CONNECTION_WIFI:
+						mui.toast("当前网络为WiFi");
+						break;
+					case plus.networkinfo.CONNECTION_CELL2G:
+					case plus.networkinfo.CONNECTION_CELL3G:
+					case plus.networkinfo.CONNECTION_CELL4G:
+						mui.toast("当前网络非WiFi");
+						break;
+					default:
+						mui.toast("网络异常，请检查网络设置");
+						break;
+				}
+			}
+			var winH = $(window).height()
+			//输入法弹出后重新赋值高度
+			$(window).resize(function() {
+				var winH2 = $(window).height();
+				if((winH - winH2) > 100) {
+					var top = $('.login').position().top;
+					$(".login-logo-text").css("top", top / 2)
+				} else {
+					$(".login-logo-text").css("top", "20%")
+				}
+			})
+			
+			//登录跳转
+			document.getElementById("submit").addEventListener('tap', function() {
+				document.activeElement.blur();
+				$("input").blur();
+				var accountname = $("#accountname").val();
+				var password = $("#password").val();
+				if(accountname == "") {
+					mui.toast("请输入用户名！");
+					return;
+				}
+				if(password == "") {
+					mui.toast("请输入密码！");
+					return;
+				}
+				
+				Login();
+			})
+			//登录处理函数
+			function Login(orgId) {
+				debugger;
+				var formData = new Object();
+				var data = $(":input").each(function() {
+					if(this.name != "") {
+						formData[this.name] = $("#" + this.name).val();
+						if(this.name == "password") {
+							formData[this.name] = $.md5($("#" + this.name).val());
+						}
+					}
+				});
+				
+				$.ajax({
+					type: 'POST',
+					url:ajaxUrl + '/Mgeids/mineAppLogin',  // 请求的路径
+					data: formData,
+					dataType: "json",
+					error: function(e) { // 请求失败处理函数
+						mui.alert("您输入的账户名或密码不正确，请重新输入", "登录错误！", "知道了");
+					},
+					success: function(data) {
+						if(data.status) {
+							mui.toast("登录成功");
+							mui.openWindow({
+								url: 'index.html',
+								id: 'index',
+								show: {
+									autoShow: true, //页面loaded事件发生后自动显示，默认为true
+									aniShow: 'fade-in', //页面显示动画，默认为”slide-in-right“；
+									duration: 200, //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+								}
+							});
+						}else{
+							mui.toast(data.msg);
+						}
+					}
+				});
+			}
+			
+		</script>
+	</body>
+
+</html>

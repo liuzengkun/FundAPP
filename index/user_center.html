@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>user_center</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../mui/css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../mui/css/style.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">用户中心</h1>
+		</header>
+		<div class="mui-content">
+			<div>
+				<img src="../images/user_background.png" class="background" />
+			</div>
+			<div>
+				<img src="../images/user_avatar.png" id="user_avatar" class="user_avatar">
+			</div>
+			<div class="user_name_position">
+				<center>
+					<p class="user_name"id="user_name">济南自然资源规划局</p>
+				</center>
+			</div>
+			<div class="yhk">
+				<hr style="height:1px;border:none;border-top:1px dashed #C5C5C5;" />
+				<a class="yha" id="ct">
+					<p class="yhp">修改密码<span class="mui-badge mui-badge-inverted yhj">+</span></p>
+				</a>
+				<hr style="height:1px;border:none;border-top:1px dashed #C5C5C5;margin-top: 15px;" />
+				<a class="yha" id="ab">
+					<p class="yhp">关于我们<span class="mui-badge mui-badge-inverted yhj">+</span></p>
+				</a>
+
+				<hr style="height:1px;border:none;border-top:1px dashed #C5C5C5;margin-top: 15px;" />
+				<a class="yha" id="fe">
+					<p class="yhp" >意见反馈<span class="mui-badge mui-badge-inverted yhj">+</span></p>
+				</a>
+				<hr style="height:1px;border:none;border-top:1px dashed #C5C5C5;margin-top: 15px;" />
+				<div class="yhbutton-c">
+					<button type="button" id="exit-the-account" class="exit-the-account_button mui-btn">退出账号</button>
+				</div>
+				<div class="copyright-style">
+					<p class="copyright" id="coppyright">Copyright ©️ 2015-2018 yxt.com All rights reserved</p>
+					<p class="copyright-d">版权所有</p>
+				</div>
+			</div>
+		</div>
+		<script src="../mui/js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var y = "user_center";
+				
+				mui("body").on("tap","#ct",function(){
+					 mui.openWindow({
+						url:"../user_center/modify_password.html",
+						id:"modify_password",
+						preload: false,
+						extras: {
+						    name: y
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				mui("body").on("tap","#ab",function(){
+					 mui.openWindow({
+						url:"../user_center/about_us.html",
+						id:"about_us",
+						preload: false,
+						extras: {
+						    name: y
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				mui("body").on("tap","#fe",function(){
+					 mui.openWindow({
+						url:"../user_center/feedback.html",
+						id:"feedback",
+						preload: false,
+						extras: {
+						    name: y
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			font:"宋体";
+			
+		</style>
+	</head>
+
+	<body>
+		<!-- 主界面不动、菜单移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+		  <!-- 菜单容器 -->
+		 
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+			<!-- 主页面标题 -->
+			<header class="mui-bar mui-bar-nav">
+			  <h1 class="mui-title">首页</h1>
+			</header>
+		
+			<div class="mui-content mui-scroll-wrapper">
+			  <div class="mui-scroll">
+				<!-- 主界面具体展示内容 -->
+				<div id="slider" class="mui-slider" >
+				  <div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+					  <a href="#">
+						<img src="../images/index.png">
+					  </a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="../images/index.png">
+					  </a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="http:\">
+					  </a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="http:\">
+					  </a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+					  <a href="#">
+						<img src="../images/index.png">
+					  </a>
+					</div>
+				  </div>
+				  <div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				  </div>
+				</div>
+				
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a id="fr">
+							<img src="../images/img1.png" />
+							<div class="mui-media-body">资金接收</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a id="fau">
+							<img src="../images/img2.png" />
+							<div class="mui-media-body">资金审核</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a id="fas" >
+							<img src="../images/img3.png" />
+							<div class="mui-media-body">资金下达详情</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a id="te">
+							<img src="../images/img4.png" />
+							<div class="mui-media-body">执行管理</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a id="gis">
+							<img src="../images/img5.png" />
+							<div class="mui-media-body">地图</div>
+						</a>
+					</li>
+					
+				</ul>
+				
+				
+			  </div>
+			</div>  
+			<div class="mui-off-canvas-backdrop"></div>
+		  </div>
+		</div>
+		<script src="../mui/js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			
+			
+			mui.plusReady(function(){
+				//定义按钮
+				var frButton = document.getElementById('fr');
+				var fauButton = document.getElementById('fau');
+				var fasButton = document.getElementById('fas');
+				var teButton = document.getElementById('te');
+				var gisButton = document.getElementById('gis');
+				//资金接收页面跳转
+				frButton.addEventListener('tap', function(event) {
+					mui.openWindow({
+						url: '../first/fund_receive.html',
+						id: 'first/fund_receive',
+						preload: true,
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				}, false);
+				//资金审核跳转
+				fasButton.addEventListener('tap', function(event) {
+					mui.openWindow({
+						url: "../first/fund_send.html",
+						id: 'first/fund_send',
+						preload: true,
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				}, false);
+				//资金下达详情跳转
+				fauButton.addEventListener('tap', function(event) {
+					mui.openWindow({
+						url: '../first/fund_assign.html',
+						id: 'first/fund_assign',
+						preload: true,
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				}, false);
+				//执行管理跳转
+				teButton.addEventListener('tap', function(event) {
+					mui.openWindow({
+						url: '../first/task_exec.html',
+						id: 'first/task_exec',
+						preload: true,
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				}, false);
+				//地图跳转
+				gisButton.addEventListener('tap', function(event) {
+					mui.openWindow({
+						url: '../first/fund_gis.html',
+						id: 'first/fund_gis',
+						preload: true,
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				}, false);
+				/* mui("#fr").on("tag", "a", function(){
+					//打开页面
+					mui.openWindow({
+					    url:"package/fund_receive.html",
+					    id:"package/fund_receive.html",
+					    show:{
+					      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+					      aniShow:"slide-in-right",//页面显示动画，默认为”slide-in-right“；
+					      duration:100//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+					    },
+					    waiting:{
+					      autoShow:true,//自动显示等待框，默认为true
+					      title:'正在加载...',//等待对话框上显示的提示内容
+					    }
+					})
+				}); */
+			});
+		</script>
+		
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+
+</html>

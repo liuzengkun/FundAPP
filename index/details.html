@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">详情</h1>
+		</header>
+		<div class="mui-content">
+			<div style="margin: 10px;">
+				<div id="Essential">
+					<table style="font-size: 14px;line-height: 30px;width: 355px;">
+						<tr style="font-size: 20px;">
+							<td>基本信息</td>
+						</tr>
+						<tr>
+							<td>文号：</td>
+							<td id="fundCode">财资环[2019]13号</td>
+						</tr>
+						<tr>
+							<td>批次：</td>
+							<td id="fundBatchNumber">第三批</td>
+						</tr>
+						<tr>
+							<td>批文年度：</td>
+							<td id="excuteYearName">2019年</td>
+						</tr>
+						<tr>
+							<td>资金名称：</td>
+							<td id="fundName">泰山区域田湖生态保护修复工程</td>
+						</tr>
+						<tr>
+							<td>资金类型：</td>
+							<td id="fundTypeName">重点生态保护修复治理工程</td>
+						</tr>
+						<tr>
+							<td>资金子类型：</td>
+							<td id="fundSubTypeName">山水林田湖生态保护修复工程试点</td>
+						</tr>
+						<tr>
+							<td>中央财政资金下达数：</td>
+							<td id="fundCapital">50000万元</td>
+						</tr>
+					</table>
+				</div>
+				<hr style="height:1px;border:none;border-top:1px solid #C5C5C5; ">]
+				<div id="Fund">
+					<table style="font-size: 14px;line-height: 30px;width: 355px;">
+						//fundProperty=1,2,3,,4,5代表各个资金来源
+						//fundAmount代表资金额度
+						<tr style="font-size: 20px;">
+							<td>资金块信息</td>
+						</tr>
+						<tr>
+							<td style="width: 142px;">专项资金：</td>
+							<td id="fundAmount">50000万元</td>
+						</tr>
+						<tr>
+							<td>地方财政：</td>
+							<td>0万元</td>
+						</tr>
+						<tr>
+							<td>地方统筹的其他资金：</td>
+							<td>0万元</td>
+						</tr>
+						<tr>
+							<td>责任人出资：</td>
+							<td>0万元</td>
+						</tr>
+						<tr>
+							<td>社会资金：</td>
+							<td>0万元</td>
+						</tr>
+					</table>
+				</div>
+				<hr style="height:1px;border:none;border-top:1px solid #C5C5C5; ">
+				<div id="Performance">
+					<table style="font-size: 14px;line-height: 30px;width: 355px;">
+						<tr style="font-size: 20px;">
+							<td style="width: 142px;">绩效信息</td>
+						</tr>
+						<tr>
+							<td>绩效名称：</td>
+							<td>采煤坍塌地治理</td>
+						</tr>
+						<tr>
+							<td>绩效描述：</td>
+							<td>采煤坍塌地治理</td>
+						</tr>
+						<tr>
+							<td>考核值：</td>
+							<td>13151.12公里</td>
+						</tr>
+					</table>
+				</div>
+				<hr style="height:1px;border:none;border-top:1px solid #C5C5C5; ">
+				<div id="Attach">
+					<table style="font-size: 14px;line-height: 30px;width: 355px;">
+						<tr style="font-size: 20px;">
+							<td>附件查看</td>
+						</tr>
+						<tr>
+							<td style="width: 142px;">附件来源：</td>
+							<td>山东省财政厅</td>
+						</tr>
+						<tr>
+							<td>附件名：</td>
+							<td>2019生态第三批-财资环[2019]13号.pdf</td>
+						</tr>
+						<tr>
+							<td>上传日期：</td>
+							<td>2020/1/20</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="../mui/js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			/* mui.plusReady(function(){
+				var curView = plus.webview.currentWebview();
+				var name = curView.name;	//接收上个页面传输过来的信息。上一页面的id
+				var old_back = mui.back;
+				//返回刷新
+				mui.back = function() {
+					var wobj = plus.webview.getWebviewById(name);//注意name是原html的ID
+					wobj.reload(true);
+					old_back()
+				};
+				//下载按钮弹窗
+				mui("body").on("tap",".mui-btn mui-btn-primary",function(){
+					 mui.confirm('是否确认？','title',['取消','确认'],function (e) {
+					 	e.index
+					 },'div')
+				});
+			}); */
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>执行管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../mui/css/mui.min.css" rel="stylesheet" />
+		<style>
+			.se{
+				text-align: right;
+			}
+			.se select{
+				width: 30%;
+				height: 40px;
+			}
+			.mui-table-view{
+				text-align: center;
+				margin-left: -5px;
+				margin-right: -5px;
+				margin-bottom: 5px;
+			}
+			.button_blue{
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">执行管理</h1>
+		</header>
+		<div class="mui-content" style="margin-top: -10px;">
+			<!-- 筛选框 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<a class="mui-navigate-right" href="#">筛选</a>
+					<div class="mui-collapse-content" style="text-align: left;">
+						<p>级别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中央&nbsp;&nbsp;&nbsp;省级&nbsp;&nbsp;&nbsp;市级&nbsp;&nbsp;&nbsp;县/区级&nbsp;&nbsp;&nbsp;乡镇</p>
+						<br>
+						<p>年度&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2018年之前&nbsp;&nbsp;&nbsp;2018年&nbsp;&nbsp;&nbsp;2019年&nbsp;&nbsp;&nbsp;2020年</p>
+					</div>
+				</li>
+
+			</ul>
+
+			<ul class="mui-table-view" style="text-align: center;margin-left: 5px;margin-right: 5px;margin-top: 3px;">
+				<li class="mui-table-view-cell mui-media">
+					<div class="mui-media-body">
+						<p>
+							<p style="float: right; padding-top: 5px;">2019年度</p>
+							<h4 style="margin-left: -40px;">中央废弃矿地整治补助资金</h4>
+						</p>
+						<p style="margin-top: 18px;">
+							<a id="details" style="float: right;">详情&nbsp; ></a>
+							<table style="width:280px;margin-left: 10px;">
+								<tr style="text-align: left; font-size: 14px;color:#7d7d7d">
+									<td>中央</td>
+									<td>914万元</td>
+									<td>财资环[2019]23号</td>
+								</tr>
+							</table>
+						</p>
+						<p style="float: right; margin-top: 10px;">单位名称</p>
+						<br />
+						<button id="rd" class="mui-btn mui-btn-primary">填报时间设置</button>
+					</div>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<div class="mui-media-body">
+						<p>
+							<p style="float: right; padding-top: 5px;">2019年度</p>
+							<h4 style="margin-left: -40px;">中央废弃矿地整治补助资金</h4>
+						</p>
+						<p style="margin-top: 18px;">
+							<a id="details" style="float: right;">详情&nbsp; ></a>
+							<table style="width:280px;margin-left: 10px;">
+								<tr style="text-align: left; font-size: 14px;color:#7d7d7d">
+									<td>中央</td>
+									<td>914万元</td>
+									<td>财资环[2019]23号</td>
+								</tr>
+							</table>
+						</p>
+						<p style="float: right; margin-top: 10px;">单位名称</p>
+						<br />
+						<button id="rd" class="mui-btn mui-btn-primary">填报时间设置</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		
+
+		<script src="../mui/js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var n = "task_exec";
+
+				mui("body").on("tap", "#details", function() {
+					mui.openWindow({
+						url: "../package/details.html",
+						id: "details",
+						preload: false,
+						extras: {
+							name: n
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+
+				mui("body").on("tap", "#rd", function() {
+					mui.openWindow({
+						url: "task_exec/report_date.html",
+						id: "report_date",
+						preload: false,
+						extras: {
+							name: n
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

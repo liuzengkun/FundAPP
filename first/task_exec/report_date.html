@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>填报时间设置</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../mui/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../mui/css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../mui/css/mui.css"/>
+		<style>
+			.mui-input-row{
+				 white-space:nowrap;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+			<!-- 主页面标题 -->
+			<header class="mui-bar mui-bar-nav">
+				<a  class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">填报时间设置</h1>
+			</header>
+			<div class="mui-content mui-scroll-wrapper">
+			  <div class="mui-scroll" style="padding: 10px;">
+				<!-- 主界面具体展示内容 -->
+					<label>本次填报截止：</label>
+					<input id="this_report" type="date" style="width: 180px;"/>
+					<br /><br />
+					<label>周期重复规则：</label>
+					<ul class="mui-table-view time_position" style="width: 180px; border:1px #C0C0C0 solid">
+						<li class="mui-table-view-cell mui-collapse">
+							<a id="cycle" class="mui-navigate-right" href="#">请选择</a>
+							<div class="mui-collapse-content">
+								<p>每年同一天</p>
+								<p>每半年同一天</p>
+								<p>每季度同一天</p>
+								<p>每两月同一天</p>
+								<p>每月同一天</p>
+								<p>不重复</p>
+							</div>
+						</li>
+					</ul>
+					
+					<label >周期结束日期：</label>
+					<input id="end_cycle" type="date" style="width: 180px;"/>
+					<div style="text-align: center;margin-top: 30px;">
+						<button type="submit" class="button_blue"style="width: 104px;">确认</button>
+					</div>
+			  </div>
+			</div>  
+			
+		</div>
+		<script src="../../mui/js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			/* mui.plusReady(function(){
+				var curView = plus.webview.currentWebview();
+				var name = curView.name;
+				var old_back = mui.back;
+				
+				mui.back = function() {
+					var wobj = plus.webview.getWebviewById(name);//注意name是原html的ID
+					wobj.reload(true);
+					old_back()
+				}	
+			}); */
+		</script>
+	</body>
+
+</html>
